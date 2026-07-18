@@ -113,30 +113,24 @@ In short, this role served as the bridge between civil engineering principles an
 
 ## Project Structure
 
-text
-A-Multi-Scale-Deep-Learning-Approach-for-Hairline-Crack-Detection-using-a-Hybrid-CNN-Transformer/
-|-- README.md
-|-- requirements.txt
-|-- .gitignore
-|
-|-- data/
-|   `-- (crack images used for testing/inference, e.g. hairline crack image.jpg,
-|        crack analysis image.jpeg, crack image1-6.jpg/.jpeg)
-|
-|-- docs/
-|   |-- Abstract_and_Introduction.pdf
-|   |-- Role Summary in the Manuscript of the Paper.pdf
-|   `-- Site location.pdf
-|
-|-- src/
-|   |-- data.py            # Data loading and preprocessing
-|   |-- model.py           # HybridCNNTransformer model definition
-|   |-- train.py           # Training loop
-|   |-- evaluate.py        # Model evaluation scripts
-|   |-- predict.py         # Single image prediction (full, with visualization)
-|   `-- predict_simple.py  # Single image prediction (minimal)
-|
-`-- outputs/                # Results, plots, saved model checkpoints
+```
+CNN-TRANSFORMER-MODEL/
+├── README.md
+├── requirements.txt
+├── .gitignore
+├── data/                     # Crack images for testing/inference
+├── docs/
+│   ├── Abstract_and_Introduction.pdf
+│   ├── Role_Summary_Civil_Engineering.pdf
+│   └── Site location .pdf
+└── src/
+    ├── data.py               # Data loading and preprocessing
+    ├── model.py              # HybridCNNTransformer model definition
+    ├── train.py              # Training loop
+    ├── evaluate.py           # Model evaluation scripts
+    ├── predict.py            # Single image prediction (full, with visualization)
+    └── predict_simple.py     # Single image prediction (minimal)
+```
 
 ## Setup
 
