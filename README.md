@@ -5,10 +5,32 @@ A hybrid deep learning framework for detecting hairline cracks (< 0.3 mm) in con
 *Paper title:*
 A Multi-Scale Deep Learning Approach for Hairline Crack Detection using a Hybrid CNN–Transformer Model
 
+*Repository:* [A-Multi-Scale-Deep-Learning-Approach-for-Hairline-Crack-Detection-using-a-Hybrid-CNN-Transformer](https://github.com/saritasapkota123/A-Multi-Scale-Deep-Learning-Approach-for-Hairline-Crack-Detection-using-a-Hybrid-CNN-Transformer)
+
 *Authors:*
 - Sarita Sapkota¹ — Department of Civil Engineering, Kathmandu University
 - Ravi Kumar Pajiyar² — Department of Computer Science & Engineering, Kathmandu University
 - Prof. Dr. Sudan Jha² — Department of Computer Science & Engineering, Kathmandu University
+
+¹Civil Engineering &nbsp;&nbsp;·&nbsp;&nbsp; ²Computer Science & Engineering, Kathmandu University
+
+---
+
+## Table of Contents
+
+- [Abstract](#abstract)
+- [Motivation](#motivation)
+- [Model Architecture](#model-architecture)
+- [Dataset](#dataset)
+- [Results](#results)
+- [Role of the First Author](#role-of-the-first-author-civil-engineering-perspective)
+- [Project Structure](#project-structure)
+- [Setup](#setup)
+- [Usage](#usage)
+- [Documentation](#documentation)
+- [Citation](#citation)
+- [References](#references)
+- [Status](#status)
 
 ---
 
@@ -27,6 +49,7 @@ The model was evaluated on a combined dataset of SDNET2018, DeepCrack, and 1,200
 The long-term health of concrete structures depends heavily on catching problems early, and hairline cracks are often the first visible sign of deterioration. Manual inspection is slow, subjective, and inconsistent — especially under difficult field conditions.
 
 Existing deep learning approaches each fall short in a different way:
+
 - *CNN-based models* (e.g., U-Net, DeepCrack) excel at local texture recognition but have a limited receptive field, making it hard to trace long, faint, or discontinuous cracks.
 - *Transformer-based models* (e.g., Swin Transformer) capture global context well via self-attention, but tend to smooth over the fine boundary details needed for precise segmentation, and typically require large training datasets.
 
@@ -41,25 +64,41 @@ CrackFormer is designed to resolve this local-vs-global trade-off by combining b
 ## Dataset
 
 The model was trained and evaluated on a combined dataset consisting of:
+
 - *SDNET2018* — public benchmark dataset for concrete crack classification.
 - *DeepCrack* — public pixel-level crack segmentation dataset.
 - *1,200 field images* — original images collected from concrete structures in Nepal, covering diverse surface types, finishes, lighting, and environmental conditions.
 
 ## Results
 
-| Model | IoU | F1-score |
-|---|---|---|
-| U-Net | — | — |
-| TransUNet | — | — |
-| *CrackFormer (ours)* | *85.4%* | *92.1%* |
+| Model            | IoU        | F1-score   |
+|------------------|:----------:|:----------:|
+| U-Net            | —          | —          |
+| TransUNet        | —          | —          |
+| *CrackFormer (ours)* | *85.4%*  | *92.1%*  |
 
 CrackFormer improves on U-Net and TransUNet baselines by 3–5% across evaluation metrics. The paper further demonstrates a crack-evolution tracking use case, showing how the model can monitor growth in crack length and width over time.
+
+Fill in the U-Net / TransUNet rows above once the full comparison table from the paper's results section is finalized.
+
 
 ---
 
 ## Role of the First Author (Civil Engineering Perspective)
 
-This project is an interdisciplinary collaboration between civil engineering and AI/computer science. As first author and the project's civil engineering researcher, Sarita Sapkota's contributions ensured that the model's design, data, and outputs remained grounded in real structural inspection practice:
+This project is an interdisciplinary collaboration between civil engineering and AI/computer science. As first author and the project's civil engineering researcher, Sarita Sapkota's contributions ensured that the model's design, data, and outputs remained grounded in real structural inspection practice.
+
+| Category | Contribution |
+|---|---|
+| Conceptualization | Defined the problem statement and research scope from a civil engineering standpoint. |
+| Literature Review | Synthesized SHM and crack detection studies to identify knowledge gaps. |
+| Methodology Design | Developed the civil-based validation approach and field data protocols. |
+| Data Collection | Led field image collection and ground-truth validation. |
+| Model Validation | Evaluated and verified outputs from an engineering accuracy perspective. |
+| Result Interpretation | Connected model performance to real-world structural integrity assessment. |
+| Drafting & Editing | Authored key civil-focused sections and finalized the manuscript. |
+
+*In detail:*
 
 - *Conceptualization & research design* — identified limitations of traditional crack detection methods and proposed the multi-scale hybrid deep learning approach, aligning the model's capabilities with real inspection needs.
 - *Literature review* — reviewed conventional image-processing methods (Sobel, Canny, thresholding) and civil-engineering-based deep learning studies (e.g., Cha et al. 2017; SDNET2018; Zou et al. 2018) to identify research gaps.
@@ -74,41 +113,51 @@ In short, this role served as the bridge between civil engineering principles an
 
 ## Project Structure
 
-CNN-TRANSFORMER-MODEL/
-├── README.md
-├── requirements.txt
-├── .gitignore
-├── data/
-│   ├── raw/                   # Crack images, site data
-│   └── processed/             # Preprocessed/cleaned data
-├── docs/
-│   ├── Abstract_and_Introduction.pdf
-│   ├── Site_location.pdf
-│   └── Role_Summary_Civil_Engineering.pdf
-├── notebooks/                 # Exploratory Jupyter notebooks
-├── src/
-│   ├── data.py                # Data loading and preprocessing
-│   ├── evaluate.py            # Model evaluation scripts
-│   ├── model.py                # HybridCNNTransformer model definition
-│   ├── predict.py             # Single image prediction (full)
-│   ├── predict_simple.py      # Single image prediction (minimal)
-│   └── train.py               # Training loop
-└── outputs/                   # Results, plots, saved models
+text
+A-Multi-Scale-Deep-Learning-Approach-for-Hairline-Crack-Detection-using-a-Hybrid-CNN-Transformer/
+|-- README.md
+|-- requirements.txt
+|-- .gitignore
+|
+|-- data/
+|   `-- (crack images used for testing/inference, e.g. hairline crack image.jpg,
+|        crack analysis image.jpeg, crack image1-6.jpg/.jpeg)
+|
+|-- docs/
+|   |-- Abstract_and_Introduction.pdf
+|   |-- Role Summary in the Manuscript of the Paper.pdf
+|   `-- Site location.pdf
+|
+|-- src/
+|   |-- data.py            # Data loading and preprocessing
+|   |-- model.py           # HybridCNNTransformer model definition
+|   |-- train.py           # Training loop
+|   |-- evaluate.py        # Model evaluation scripts
+|   |-- predict.py         # Single image prediction (full, with visualization)
+|   `-- predict_simple.py  # Single image prediction (minimal)
+|
+`-- outputs/                # Results, plots, saved model checkpoints
 
 ## Setup
 
 1. Clone the repository:
    
-   git clone <repo-url>
-   cd CNN-TRANSFORMER-MODEL
+   git clone https://github.com/saritasapkota123/A-Multi-Scale-Deep-Learning-Approach-for-Hairline-Crack-Detection-using-a-Hybrid-CNN-Transformer.git
+   cd A-Multi-Scale-Deep-Learning-Approach-for-Hairline-Crack-Detection-using-a-Hybrid-CNN-Transformer
    
 
-2. Install dependencies:
+2. (Recommended) Create and activate a virtual environment:
+   
+   python -m venv venv
+   source venv/bin/activate   # On Windows: venv\Scripts\activate
+   
+
+3. Install dependencies:
    
    pip install -r requirements.txt
    
 
-3. Place your crack images in data/raw/.
+4. Place your crack images in data/.
 
 ## Usage
 
@@ -118,8 +167,10 @@ python src/train.py
 
 ### Prediction
 
+Full prediction with visualization and configurable threshold:
 python src/predict.py <image_path> --save_result --show --threshold 0.5
 
+Minimal prediction:
 python src/predict_simple.py <image_path> --save_result
 
 ### Evaluation
@@ -128,7 +179,22 @@ python src/evaluate.py
 
 ## Documentation
 
-See the docs/ folder for the project abstract and introduction, site location details, and the first author's role summary.
+See the docs/ folder for:
+- *Abstract_and_Introduction.pdf* — the paper's abstract and introduction.
+- *Site location.pdf* — details of the field sites where crack images were collected.
+- *Role Summary in the Manuscript of the Paper.pdf* — the first author's detailed role and contribution summary.
+
+## Citation
+
+If you use this work, please cite:
+
+bibtex
+@article{sapkota2026crackformer,
+  title   = {A Multi-Scale Deep Learning Approach for Hairline Crack Detection using a Hybrid CNN-Transformer Model},
+  author  = {Sapkota, Sarita and Pajiyar, Ravi Kumar and Jha, Sudan},
+  journal = {Under review},
+  year    = {2026}
+}
 
 ## References
 
@@ -138,4 +204,4 @@ See the docs/ folder for the project abstract and introduction, site location de
 
 ## Status
 
-*ONGOING*
+*ONGOING* — manuscript under review; codebase actively maintained.
