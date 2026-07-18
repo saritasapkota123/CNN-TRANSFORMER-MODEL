@@ -178,18 +178,6 @@ See the docs/ folder for:
 - *Site location.pdf* — details of the field sites where crack images were collected.
 - *Role Summary in the Manuscript of the Paper.pdf* — the first author's detailed role and contribution summary.
 
-## Citation
-
-If you use this work, please cite:
-
-bibtex
-@article{sapkota2026crackformer,
-  title   = {A Multi-Scale Deep Learning Approach for Hairline Crack Detection using a Hybrid CNN-Transformer Model},
-  author  = {Sapkota, Sarita and Pajiyar, Ravi Kumar and Jha, Sudan},
-  journal = {Under review},
-  year    = {2026}
-}
-
 ## References
 
 1. O. Ronneberger, P. Fischer, and T. Brox, "U-Net: Convolutional Networks for Biomedical Image Segmentation," MICCAI, pp. 234–241, 2015.
@@ -198,4 +186,4 @@ bibtex
 
 ## Status
 
-*ONGOING* — manuscript under review; codebase actively maintained.
+ONGOING
